@@ -1,5 +1,8 @@
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+//import 'package:google_fonts/google_fonts.dart';
+import 'profile.dart';
 
 class TopPage extends StatefulWidget {
   const TopPage({Key? key}) : super(key: key);
@@ -44,7 +47,7 @@ class _TopPageState extends State<TopPage> {
                   Container(
                     width: 100,
                     height: 100,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
                           fit: BoxFit.fill,
@@ -54,13 +57,12 @@ class _TopPageState extends State<TopPage> {
                   Padding(
                     padding: const EdgeInsets.only(left:15.0),
                     child: Container(
-                      child: Text(
+                      child: const Text(
                         "Narihiro Suzuoki",
                         style: TextStyle(
                           fontSize: 32
                         ),
                       ),
-
                     ),
                   )
                 ],
@@ -71,29 +73,64 @@ class _TopPageState extends State<TopPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(onPressed: onPressed, child: child)
                   Padding(
                     padding: const EdgeInsets.only(left:0.0),
-                    child: Container(
-                      child: Text("Profile"),
+                    child: TextButton(
+                      style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all(Colors.indigoAccent)
+                      ),
+                      child: const Text("Profile"),
+                      onPressed: () {
+                        //Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Profile()));
+                        Navigator.of(context).push(
+                          PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) {
+                                return Profile();
+                              },
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                const double begin = 0.0;
+                                const double end = 1.0;
+                                Animatable<double> tween = Tween(begin:begin, end:end)
+                                    .chain(CurveTween(curve: Curves.easeInOut));
+                                Animation<double> doubleAnimation = animation.drive(tween);
+                                return FadeTransition(
+                                  opacity: doubleAnimation,
+                                  child: child,
+                                );
+                            },
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left:50.0),
-                    child: Container(
-                      child: Text("Programming"),
+                    child: TextButton(
+                      style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all(Colors.indigoAccent)
+                      ),
+                      child: const Text('Programming'),
+                      onPressed: () {},
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left:50.0),
-                    child: Container(
-                      child: Text("Piano"),
+                    child: TextButton(
+                      style: ButtonStyle(
+                          foregroundColor: MaterialStateProperty.all(Colors.indigoAccent)
+                      ),
+                      child: const Text("Piano"),
+                      onPressed: () {},
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left:50.0),
-                    child: Container(
-                      child: Text("Inquiry"),
+                    child: TextButton(
+                      style: ButtonStyle(
+                          foregroundColor: MaterialStateProperty.all(Colors.indigoAccent)
+                      ),
+                      child: const Text("Inquiry"),
+                      onPressed: () {},
                     ),
                   ),
                 ],

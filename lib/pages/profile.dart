@@ -13,24 +13,70 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          //mainAxisSize: MainAxisSize.min,
           children:  [
-            Padding(
-              padding: const EdgeInsets.only(top: 70),
-              child: Container(
-                  child: const Text(
-                    "次のページに遷移しました。",
-                    style: TextStyle(fontSize: 25.0),
-                  ),
+            const Padding(
+              padding: EdgeInsets.only(top: 150),
+              child: Text(
+                "Profile",
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  decorationStyle: TextDecorationStyle.double,
+                  fontSize: 60.0,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(top:50),
+              child: Container(
+                width:500,
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "1989　岐阜県岐阜市に生まれる",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top:10),
+              child: Container(
+                width:500,
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "2014　名古屋大学大学院　情報科学研究科 修士課程",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top:10),
+              child: Container(
+                width:500,
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "2014 to present　Sky株式会社",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(138.0),
               child: TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                     },
-                  child: Text("back")
+                  child: const Text(
+                    "戻る",
+                    style: TextStyle(
+                      fontSize: 30.0
+                    ),
+                  )
               ),
             ),
           ]

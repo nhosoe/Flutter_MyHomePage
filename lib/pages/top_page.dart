@@ -1,7 +1,7 @@
-//import 'dart:html';
-
 import 'package:flutter/material.dart';
-//import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_home_page/pages/music.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'profile.dart';
 
 class TopPage extends StatefulWidget {
@@ -79,17 +79,22 @@ class _TopPageState extends State<TopPage> {
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all(Colors.indigoAccent)
                       ),
-                      child: const Text("Profile"),
+                      child: const Text(
+                        "Profile",
+                        style: TextStyle(
+                          fontSize: 20
+                        ),
+                      ),
                       onPressed: () {
                         //Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Profile()));
                         Navigator.of(context).push(
                           PageRouteBuilder(
                               pageBuilder: (context, animation, secondaryAnimation) {
-                                return Profile();
+                                return const Profile();
                               },
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                 const double begin = 0.0;
-                                const double end = 1.0;
+                                const double end = 0.90;
                                 Animatable<double> tween = Tween(begin:begin, end:end)
                                     .chain(CurveTween(curve: Curves.easeInOut));
                                 Animation<double> doubleAnimation = animation.drive(tween);
@@ -109,7 +114,12 @@ class _TopPageState extends State<TopPage> {
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all(Colors.indigoAccent)
                       ),
-                      child: const Text('Programming'),
+                      child: const Text(
+                        'Programming',
+                        style: TextStyle(
+                          fontSize: 20
+                        ),
+                      ),
                       onPressed: () {},
                     ),
                   ),
@@ -119,27 +129,66 @@ class _TopPageState extends State<TopPage> {
                       style: ButtonStyle(
                           foregroundColor: MaterialStateProperty.all(Colors.indigoAccent)
                       ),
-                      child: const Text("Piano"),
-                      onPressed: () {},
+                      child: const Text(
+                        "Music",
+                        style: TextStyle(
+                          fontSize: 20
+                        ),
+                      ),
+                      onPressed: () {
+                        //Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Profile()));
+                        Navigator.of(context).push(
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) {
+                              return const Music();
+                            },
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              const double begin = 0.0;
+                              const double end = 0.90;
+                              Animatable<double> tween = Tween(begin:begin, end:end)
+                                  .chain(CurveTween(curve: Curves.easeInOut));
+                              Animation<double> doubleAnimation = animation.drive(tween);
+                              return FadeTransition(
+                                opacity: doubleAnimation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },                    ),
+                  ),
+                   const Padding(
+                    padding: EdgeInsets.only(left:50.0),
+                    child: FaIcon(
+                      FontAwesomeIcons.instagram, 
+                      color: Colors.indigoAccent,
+                      size: 25,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left:50.0),
-                    child: TextButton(
-                      style: ButtonStyle(
-                          foregroundColor: MaterialStateProperty.all(Colors.indigoAccent)
+                    padding: const EdgeInsets.all(3.0),
+                    child: Material(
+                      child: InkWell(
+                        onTap: () async {
+                          await launchUrlString("https://www.instagram.com/pepe_nari/");
+                        },
+                        child: const Text(
+                            "Instagram",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.indigoAccent
+                          ),
+                        ),
                       ),
-                      child: const Text("Inquiry"),
-                      onPressed: () {},
-                    ),
+                    )
                   ),
                 ],
               ),
             ),
-
           ],
         ),
       ),
+      
     );
   }
 }

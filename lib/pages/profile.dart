@@ -16,7 +16,7 @@ class _ProfileState extends State<Profile> {
           //mainAxisSize: MainAxisSize.min,
           children:  [
             const Padding(
-              padding: EdgeInsets.only(top: 150),
+              padding: EdgeInsets.only(top: 100),
               child: Text(
                 "Profile",
                 style: TextStyle(
@@ -66,7 +66,22 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(138.0),
+              padding: const EdgeInsets.only(top:10),
+              child: Container(
+                width:500,
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "2020 叔祖父のところへ養子縁組"
+                      "\n    　　　　　　　　　　"
+                      "姓が『細江』から『鈴置』へ",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(100.0),
               child: TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();

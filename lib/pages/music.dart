@@ -14,8 +14,8 @@ class _MusicState extends State<Music> {
       body: Center(
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.only(top: 150.0),
+            const Padding(
+              padding: EdgeInsets.only(top: 100),
               child: Text(
                 "Music",
                 style: TextStyle(
@@ -26,7 +26,7 @@ class _MusicState extends State<Music> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top:10.0),
+              padding: const EdgeInsets.only(top:10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -38,13 +38,13 @@ class _MusicState extends State<Music> {
                   ),
                   const Padding(
                     padding: EdgeInsets.only(left:10.0),
-                    child: Text("2020/3/?。コロナが流行り始めた時に話題になった星野源さんの『うちで踊ろう』。私も影響されてセッションに参加。"),
+                    child: Text("2020/3/某日。コロナ流行り始めに話題の星野源さんの『うちで踊ろう』。\n私も影響されてキーボードでセッションに参加。"),
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top:10.0),
+              padding: const EdgeInsets.only(top:10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -56,13 +56,13 @@ class _MusicState extends State<Music> {
                   ),
                   const Padding(
                     padding: EdgeInsets.only(left:10.0),
-                    child: Text("2020/3/14。コロナが流行る前に組んだバンド。ボーカルの方は「Froots」というラップグループで活動されています。"),
+                    child: Text("2020/3/14。コロナが流行る前に組んだバンド。\nボーカルの方は「Froots」というラップグループで活動されています。"),
                   )
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top:10.0),
+              padding: const EdgeInsets.only(top:10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -74,13 +74,13 @@ class _MusicState extends State<Music> {
                   ),
                   const Padding(
                     padding: EdgeInsets.only(left:10.0),
-                    child: Text("2018/2/11。たまたま一緒に働いていた方が音楽やってたのでバンド結成。ボーカルが見つからなくて急遽ドラマーが歌うことに。"),
+                    child: Text("2018/2/11。たまたま一緒に働いていた方が音楽やってたのでデュオ結成。\nボーカルが見つからなくて急遽ドラマーが歌うことに。"),
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top:10.0),
+              padding: const EdgeInsets.only(top:10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -92,7 +92,7 @@ class _MusicState extends State<Music> {
                   ),
                   const Padding(
                     padding: EdgeInsets.only(left:10.0),
-                    child: Text("2015/11/22。アイシン精機の社員さんとバンドを組んでライブ。ベースは大学院時代のゼミの後輩です。"),
+                    child: Text("2015/11/22。アイシン精機の社員さんとバンドを組んでライブ。\nベースは大学院時代のゼミの後輩です。"),
                   ),
                 ],
               ),
@@ -111,7 +111,6 @@ class _MusicState extends State<Music> {
                   )
               ),
             ),
-
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_home_page/pages/music.dart';
+import 'package:my_home_page/pages/work.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'profile.dart';
 
@@ -58,7 +59,7 @@ class _TopPageState extends State<TopPage> {
                     padding: const EdgeInsets.only(left:15.0),
                     child: Container(
                       child: const Text(
-                        "Narihiro Suzuoki",
+                        "Narihiro Suzuoki（鈴置 成洋）",
                         style: TextStyle(
                           fontSize: 32
                         ),
@@ -115,12 +116,32 @@ class _TopPageState extends State<TopPage> {
                         foregroundColor: MaterialStateProperty.all(Colors.indigoAccent)
                       ),
                       child: const Text(
-                        'Programming',
+                        'Work',
                         style: TextStyle(
                           fontSize: 20
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        //Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Profile()));
+                        Navigator.of(context).push(
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) {
+                              return const Work();
+                            },
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              const double begin = 0.0;
+                              const double end = 0.90;
+                              Animatable<double> tween = Tween(begin:begin, end:end)
+                                  .chain(CurveTween(curve: Curves.easeInOut));
+                              Animation<double> doubleAnimation = animation.drive(tween);
+                              return FadeTransition(
+                                opacity: doubleAnimation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Padding(
@@ -155,7 +176,8 @@ class _TopPageState extends State<TopPage> {
                             },
                           ),
                         );
-                      },                    ),
+                      },
+                    ),
                   ),
                    const Padding(
                     padding: EdgeInsets.only(left:50.0),
